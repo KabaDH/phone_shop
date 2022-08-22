@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class ProductDetails {
   final String CPU;
   final String camera;
@@ -52,9 +50,9 @@ class ProductDetails {
 
   factory ProductDetails.fromMap(Map<String, dynamic> data) {
     List<int> capacityList = [];
-    final capacity = List<int>.from(data['capacity']);
+    final capacity = List.from(data['capacity']);
     for (var element in capacity) {
-      capacityList.add(element);
+      capacityList.add(int.parse(element));
     }
 
     List<String> colorList = [];
