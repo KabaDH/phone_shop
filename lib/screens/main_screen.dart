@@ -5,6 +5,8 @@ import 'package:phone_shop/models/item.dart';
 import 'package:phone_shop/repos/basket_repo.dart';
 import 'package:phone_shop/repos/details_repo.dart';
 import 'package:phone_shop/repos/item_repo.dart';
+import 'package:phone_shop/theme/palette.dart';
+import 'package:phone_shop/widgets/widgets.dart';
 
 class MainScreen extends ConsumerWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -20,42 +22,39 @@ class MainScreen extends ConsumerWidget {
     final Widget svgIcon = SvgPicture.asset(assetName,
         color: Colors.red, semanticsLabel: 'A red up arrow');
 
-    buildItems(List<dynamic> items) {
-      return ListView.builder(
-          itemCount: items.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Wrap(
+    return Scaffold(
+        body: SafeArea(
+      child: CustomScrollView(
+        slivers: [
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            sliver: SliverToBoxAdapter(
+              child: Row(
                 children: [
-                  Text(items[index].toString(),
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontFamily: "Mark-Pro",
-                          fontWeight: FontWeight.w400)),
-                  Text(
-                    'This Text From Theme',
-                    style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 20),
-                  ),
-                  svgIcon,
+                  Expanded(
+                      child: Center(
+                    child: Row(
+                      children: [
+
+
+                      ],
+                    ),
+                  )),
+                  SvgIcon(
+                    assetName: 'assets/images/Filter.svg',
+                    color: Palette.secondaryColor,
+                    semanticsLabel: 'Filter',
+                    height: 13.0,
+                    onTap: () {
+                      debugPrint('Filter called');
+                    },
+                  )
                 ],
               ),
-            );
-          });
-    }
-
-    return Scaffold(
-        body: details.when(
-            data: (items) {
-              return buildItems(items.images);
-            },
-            error: (_, __) {
-              return const Center(
-                child: Text('Err'),
-              );
-            },
-            loading: () => const Center(
-                  child: CircularProgressIndicator(),
-                )));
+            ),
+          )
+        ],
+      ),
+    ));
   }
 }
