@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
                   subtitle1: themeData.textTheme.subtitle1?.copyWith(
                       fontWeight: FontWeight.w700, letterSpacing: -0.333333),
                   bodyText1: themeData.textTheme.bodyText1?.copyWith(
-                      fontWeight: FontWeight.w500, letterSpacing: -0.333333),
+                      fontWeight: FontWeight.w500, letterSpacing: -0.12),
                   bodyText2: themeData.textTheme.bodyText2?.copyWith(
                       fontWeight: FontWeight.w400, letterSpacing: -0.333333))
               .apply(

@@ -7,4 +7,8 @@ class Palette {
   static const unselectedColor = Color(0xFF8D8D8D);
   static const shadowColor = Color.fromARGB(40, 0, 0, 0);
   static const iconBackgroundColor = Color(0xFFB7B7B7);
+  static const secondaryElementColor = Color(0xFFB3B3B3);
+  static const categoryShadowColor = Color.fromARGB(40, 167, 171, 201);
+
+
 }

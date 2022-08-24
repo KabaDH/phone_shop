@@ -4,26 +4,26 @@ import 'package:flutter_svg/svg.dart';
 class SvgIcon extends StatelessWidget {
   const SvgIcon(
       {Key? key,
-      required this.assetName,
+      required this.assetPath,
       required this.color,
       required this.semanticsLabel,
       this.height,
       this.width,
-      required this.onTap})
+      this.onTap})
       : super(key: key);
 
-  final String assetName;
+  final String assetPath;
   final Color color;
   final String semanticsLabel;
   final double? height;
   final double? width;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: SvgPicture.asset(assetName,
+      child: SvgPicture.asset(assetPath,
           width: width,
           height: height,
           color: color,
