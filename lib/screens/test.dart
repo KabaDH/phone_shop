@@ -6,8 +6,8 @@ import 'package:phone_shop/repos/basket_repo.dart';
 import 'package:phone_shop/repos/details_repo.dart';
 import 'package:phone_shop/repos/item_repo.dart';
 
-class MainScreen extends ConsumerWidget {
-  const MainScreen({Key? key}) : super(key: key);
+class SomeScreen extends ConsumerWidget {
+  const SomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -55,7 +55,7 @@ class MainScreen extends ConsumerWidget {
               );
             },
             loading: () => const Center(
-                  child: CircularProgressIndicator(),
-                )));
+              child: CircularProgressIndicator(),
+            )));
   }
 }
