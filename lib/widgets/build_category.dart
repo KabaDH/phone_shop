@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:phone_shop/theme/palette.dart';
 import 'widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BuildCategory extends StatefulWidget {
   const BuildCategory(
@@ -20,12 +20,12 @@ class BuildCategory extends StatefulWidget {
 }
 
 class _BuildCategoryState extends State<BuildCategory> {
-  double size = 69;
+  double size = 1.w;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20),
+      padding: EdgeInsets.only(right: 21.5.w),
       child: Column(
         children: [
           Container(
@@ -33,8 +33,8 @@ class _BuildCategoryState extends State<BuildCategory> {
             height: size,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              boxShadow: const [
-                BoxShadow(color: Palette.categoryShadowColor, blurRadius: 5)
+              boxShadow: [
+                BoxShadow(color: Palette.categoryShadowColor, blurRadius: 5.sp)
               ],
               color: (widget.isSelected)
                   ? Theme.of(context).primaryColor
@@ -47,17 +47,17 @@ class _BuildCategoryState extends State<BuildCategory> {
                     ? Colors.white
                     : Palette.secondaryColor.withOpacity(0.3),
                 semanticsLabel: widget.name,
-                height: 31,
+                height: 36.h,
               ),
             ),
           ),
-          const SizedBox(
-            height: 5,
+          SizedBox(
+            height: 7.h,
           ),
           Text(
             widget.name,
             style: Theme.of(context).textTheme.bodyText1?.copyWith(
-                fontSize: 12,
+                fontSize: 12.sp,
                 color: (widget.isSelected)
                     ? Theme.of(context).primaryColor
                     : Palette.secondaryColor),

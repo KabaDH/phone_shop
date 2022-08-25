@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:phone_shop/repos/basket_repo.dart';
 import 'package:phone_shop/repos/details_repo.dart';
 import 'package:phone_shop/repos/item_repo.dart';
@@ -45,9 +46,10 @@ class _MainScreenState extends ConsumerState<MainScreen> {
           slivers: [
             ///location and filter line
             SliverPadding(
-              padding: const EdgeInsets.only(left: 58, top: 17, right: 29),
+              padding: EdgeInsets.only(left: 60.w, top: 18.w, right: 32.w),
               sliver: SliverToBoxAdapter(
                 child: Row(
+                  // mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Expanded(
                         child: Row(
@@ -57,10 +59,10 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                             assetPath: 'assets/images/location.svg',
                             color: Theme.of(context).primaryColor,
                             semanticsLabel: 'location',
-                            height: 16,
+                            height: 16.sp,
                             onTap: () {}),
-                        const SizedBox(
-                          width: 11,
+                        SizedBox(
+                          width: 11.w,
                         ),
                         Text(
                           'Zihuatanejo, Gro',
@@ -69,33 +71,29 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                           style: Theme.of(context)
                               .textTheme
                               .bodyText1
-                              ?.copyWith(
-                                  fontSize: 14, fontWeight: FontWeight.bold),
+                              ?.copyWith(fontSize: 15.sp),
                         ),
-                        const SizedBox(
-                          width: 2,
+                        SizedBox(
+                          width: 2.w,
                         ),
                         GestureDetector(
                           onTap: () => debugPrint('Change location'),
-                          child: const Icon(
+                          child: Icon(
                             Icons.keyboard_arrow_down_outlined,
                             color: Palette.secondaryElementColor,
-                            size: 20,
+                            size: 21.w,
                           ),
                         )
                       ],
                     )),
-                    SizedBox(
-                      width: 13,
-                      child: SvgIcon(
-                        assetPath: 'assets/images/Filter.svg',
-                        color: Palette.secondaryColor,
-                        semanticsLabel: 'Filter',
-                        height: 13.0,
-                        onTap: () {
-                          debugPrint('Filter called');
-                        },
-                      ),
+                    SvgIcon(
+                      assetPath: 'assets/images/Filter.svg',
+                      color: Palette.secondaryColor,
+                      semanticsLabel: 'Filter',
+                      height: 16.h,
+                      onTap: () {
+                        debugPrint('Filter called');
+                      },
                     )
                   ],
                 ),
@@ -104,8 +102,12 @@ class _MainScreenState extends ConsumerState<MainScreen> {
 
             ///Category header
             SliverPadding(
-              padding: const EdgeInsets.only(
-                  left: 15, right: 30, top: 18, bottom: 10),
+              padding: EdgeInsets.only(
+                left: 18.w,
+                right: 33.w,
+                top: 22.h,
+                bottom: 15.h,
+              ),
               sliver: SliverToBoxAdapter(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -114,7 +116,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                     Text(
                       'Select Category',
                       style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                            fontSize: 24,
+                            fontSize: 25.sp,
                             color: Palette.secondaryColor,
                           ),
                     ),
@@ -123,7 +125,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                       child: Text(
                         'view all',
                         style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                            fontSize: 14.5,
+                            fontSize: 15.sp,
                             color: Theme.of(context).primaryColor),
                       ),
                     )
@@ -134,14 +136,14 @@ class _MainScreenState extends ConsumerState<MainScreen> {
 
             ///Category list
             SliverPadding(
-              padding: const EdgeInsets.only(left: 5),
+              padding: EdgeInsets.only(left: 27.w),
               sliver: SliverToBoxAdapter(
-                child: Container(
-                  height: 110,
+                child: SizedBox(
+                  height: 145.h,
                   child: ListView.builder(
                       itemCount: categoryList.length,
                       scrollDirection: Axis.horizontal,
-                      padding: const EdgeInsets.only(top: 10),
+                      padding: EdgeInsets.only(top: 10.h),
                       itemBuilder: (context, index) {
                         var category = categoryList[index];
                         return GestureDetector(
@@ -150,12 +152,10 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                               selectedCategory = index;
                             });
                           },
-                          child: Container(
-                            child: BuildCategory(
-                                assetPath: category.assetPath,
-                                name: category.name,
-                                isSelected: selectedCategory == index),
-                          ),
+                          child: BuildCategory(
+                              assetPath: category.assetPath,
+                              name: category.name,
+                              isSelected: selectedCategory == index),
                         );
                       }),
                 ),
