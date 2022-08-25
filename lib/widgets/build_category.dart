@@ -20,7 +20,7 @@ class BuildCategory extends StatefulWidget {
 }
 
 class _BuildCategoryState extends State<BuildCategory> {
-  double size = 1.w;
+  double size = 73.w;
 
   @override
   Widget build(BuildContext context) {

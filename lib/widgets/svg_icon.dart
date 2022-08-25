@@ -9,7 +9,8 @@ class SvgIcon extends StatelessWidget {
       required this.semanticsLabel,
       this.height,
       this.width,
-      this.onTap})
+      this.onTap,
+      this.boxFit})
       : super(key: key);
 
   final String assetPath;
@@ -18,6 +19,7 @@ class SvgIcon extends StatelessWidget {
   final double? height;
   final double? width;
   final VoidCallback? onTap;
+  final BoxFit? boxFit;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,7 @@ class SvgIcon extends StatelessWidget {
           width: width,
           height: height,
           color: color,
+          fit: boxFit ?? BoxFit.contain,
           semanticsLabel: semanticsLabel),
     );
   }
