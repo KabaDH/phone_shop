@@ -13,4 +13,9 @@ class Palette {
   static const iconBackgroundColor2 = Colors.white;
   static const secondaryElementColor = Color(0xFFB3B3B3);
   static const categoryShadowColor = Color.fromARGB(40, 167, 171, 201);
+  static const bestSellersShadowColor = Color.fromARGB(26, 170, 182, 211);
+  static const noDiscountColor = Color(0xFFCCCCCC);
+  static const filterShadowColor = Color.fromARGB(50, 76, 95, 143);
+  static const filterBorderColor = Color(0xFFDCDCDC);
+
 }

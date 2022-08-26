@@ -92,7 +92,7 @@ class BuildHotSalesCard extends StatelessWidget {
                 height: 27.h,
                 decoration: BoxDecoration(
                     color: Palette.iconBackgroundColor2,
-                    borderRadius: BorderRadius.circular(5)),
+                    borderRadius: BorderRadius.circular(5.sp)),
                 child: Text(
                   'Buy now!',
                   style: Theme.of(context).textTheme.subtitle1?.copyWith(
