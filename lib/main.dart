@@ -43,21 +43,21 @@ class MyApp extends StatelessWidget {
                         fontWeight: FontWeight.bold, letterSpacing: -0.12),
                     bodyText2: themeData.textTheme.bodyText2?.copyWith(
                         fontWeight: FontWeight.w400, letterSpacing: -0.333333))
-          //     headline5: themeData.textTheme.headline5?.copyWith(
-          // fontWeight: FontWeight.w800, letterSpacing: -0.333333),
-          //   subtitle1: themeData.textTheme.subtitle1?.copyWith(
-          //       fontWeight: FontWeight.w700, letterSpacing: -0.333333),
-          //   bodyText1: themeData.textTheme.bodyText1?.copyWith(
-          //       fontWeight: FontWeight.w500, letterSpacing: -0.12),
-          //   bodyText2: themeData.textTheme.bodyText2?.copyWith(
-          //       fontWeight: FontWeight.w400, letterSpacing: -0.333333))
-
+                //     headline5: themeData.textTheme.headline5?.copyWith(
+                // fontWeight: FontWeight.w800, letterSpacing: -0.333333),
+                //   subtitle1: themeData.textTheme.subtitle1?.copyWith(
+                //       fontWeight: FontWeight.w700, letterSpacing: -0.333333),
+                //   bodyText1: themeData.textTheme.bodyText1?.copyWith(
+                //       fontWeight: FontWeight.w500, letterSpacing: -0.12),
+                //   bodyText2: themeData.textTheme.bodyText2?.copyWith(
+                //       fontWeight: FontWeight.w400, letterSpacing: -0.333333))
                 .apply(
                   fontFamily: "Mark-Pro",
                 ),
           ),
           routes: {
-            '/': (BuildContext context) => const MainScreen(),
+            '/': (BuildContext context) => const ProductDetails(),
+            '/product_details': (BuildContext context) => const ProductDetails(),
           },
         );
       },

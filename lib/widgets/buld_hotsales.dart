@@ -1,18 +1,20 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:phone_shop/models/models.dart';
+import 'package:phone_shop/providers/providers.dart';
 
 import '../theme/palette.dart';
 
-class BuildHotSalesCard extends StatelessWidget {
+class BuildHotSalesCard extends ConsumerWidget {
   const BuildHotSalesCard({Key? key, required this.item}) : super(key: key);
 
   final Item item;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: EdgeInsets.only(left: 14.w, right: 19.w, top: 5.h, bottom: 7.h),
       child: Stack(children: [
@@ -85,6 +87,10 @@ class BuildHotSalesCard extends StatelessWidget {
             child: InkWell(
               onTap: () {
                 debugPrint('Buy now!');
+                ///Set the new selected product
+                // ref.read(providerSelectedProduct.notifier).state =
+                //     item.id.toString();
+                Navigator.pushNamed(context, '/product_details');
               },
               child: Container(
                 alignment: Alignment.center,

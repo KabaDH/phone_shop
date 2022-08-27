@@ -17,5 +17,8 @@ class Palette {
   static const noDiscountColor = Color(0xFFCCCCCC);
   static const filterShadowColor = Color.fromARGB(50, 76, 95, 143);
   static const filterBorderColor = Color(0xFFDCDCDC);
+  static const detailsImageCardBackground = Color(0xFFC4C4C4);
+  static const detailsShadowColor = Color.fromARGB(40, 55, 78, 136);
+
 
 }

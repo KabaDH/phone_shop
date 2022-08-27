@@ -31,14 +31,13 @@ class ProductDetailsController
           itemPath,
         );
         final data = Map<String, dynamic>.from(response.data);
-
         if (response.statusCode == 200) {
           var details = ProductDetails.fromMap(data);
           state = AsyncValue.data(details);
         } else {}
       } on DioError catch (err) {
         var responseError = jsonDecode(err.response.toString());
-        print(responseError['message']);
+        print(responseError.toString());
         print(err.toString());
       } on SocketException catch (err) {
         throw err.toString();

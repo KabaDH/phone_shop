@@ -34,7 +34,7 @@ dependencies:
   flutter_riverpod: ^1.0.4
   dio: ^4.0.6
   flutter_screenutil: ^5.5.3+2
-  pixel_perfect: any
+  pixel_perfect: ^1.1.1
 
 
   # The following adds the Cupertino Icons font to your application.

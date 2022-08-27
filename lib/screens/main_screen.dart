@@ -51,7 +51,6 @@ class _MainScreenState extends ConsumerState<MainScreen> {
     final listItems = ref.watch(providerItem);
     final listBestSellers = ref.watch(providerBestSellerItems);
     final basket = ref.watch(providerBasket);
-    final details = ref.watch(providerProductDetails);
     final hotSalesPageController = usePageController();
 
     return PixelPerfect(
@@ -303,6 +302,8 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                       }),
                     ),
                   ),
+
+                  ///Best Seller Header
                   SliverPadding(
                     padding: EdgeInsets.only(
                       left: 18.w,
@@ -471,27 +472,20 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        InkWell(
-                          onTap: () {
+                        ButtonWithIcon(
+                          icon: Icon(
+                            Icons.close,
+                            size: 20.h,
+                            color: Colors.white,
+                          ),
+                          color: Palette.secondaryColor,
+                          callback: () {
                             setState(() {
                               showFilter = !showFilter;
                               filterBrand = null;
                               filterPrice = null;
                             });
                           },
-                          child: Container(
-                            width: 37.w,
-                            height: 42.h,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                color: Palette.secondaryColor,
-                                borderRadius: BorderRadius.circular(10.h)),
-                            child: Icon(
-                              Icons.close,
-                              size: 20.h,
-                              color: Colors.white,
-                            ),
-                          ),
                         ),
                         Text(
                           '      Filter options',
