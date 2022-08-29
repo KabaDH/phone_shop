@@ -19,6 +19,10 @@ class Palette {
   static const filterBorderColor = Color(0xFFDCDCDC);
   static const detailsImageCardBackground = Color(0xFFC4C4C4);
   static const detailsShadowColor = Color.fromARGB(40, 55, 78, 136);
+  static const detailsBottomShadowColor = Color.fromARGB(26, 76, 95, 143);
+  static const detailsStarRatingColor = Color(0xFFFFB800);
+  static const tabUnselectedColor = Color.fromARGB(128, 0, 0, 0);
+  static const detailsDoneIconColor = Color(0xFFFAFAFA);
 
 
 }
