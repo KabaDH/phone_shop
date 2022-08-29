@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -10,6 +9,7 @@ import 'package:phone_shop/widgets/build_detailscard.dart';
 import 'package:pixel_perfect/pixel_perfect.dart';
 import 'package:phone_shop/widgets/widgets.dart';
 import 'package:intl/intl.dart';
+import '../repos/basket_repo.dart';
 import '../repos/details_repo.dart';
 
 class ProductDetails extends StatefulHookConsumerWidget {
@@ -27,6 +27,8 @@ class _ProductDetailsState extends ConsumerState<ProductDetails> {
   @override
   Widget build(BuildContext context) {
     final item = ref.watch(providerProductDetails);
+    final basket = ref.watch(providerBasket);
+
     final screenSize = MediaQuery.of(context).size;
     final pageController =
         usePageController(initialPage: 0, viewportFraction: 0.72);
@@ -139,15 +141,52 @@ class _ProductDetailsState extends ConsumerState<ProductDetails> {
                         style: Theme.of(context).textTheme.bodyText1?.copyWith(
                             fontSize: 18.sp, color: Palette.secondaryColor),
                       ),
-                      ButtonWithIcon(
-                          icon: SvgIcon(
-                            assetPath: 'assets/images/shoppingBag.svg',
-                            color: Colors.white,
-                            semanticsLabel: 'Shopping bag',
-                            width: 14.w,
-                          ),
-                          callback: () => Navigator.pop(context),
-                          color: Theme.of(context).primaryColor)
+                      Stack(children: [
+                        ButtonWithIcon(
+                            icon: SvgIcon(
+                              assetPath: 'assets/images/shoppingBag.svg',
+                              color: Colors.white,
+                              semanticsLabel: 'Shopping bag',
+                              width: 14.w,
+                            ),
+                            callback: () => Navigator.pop(context),
+                            color: Theme.of(context).primaryColor),
+                        basket.when(data: (data) {
+                          var totalGoods = data.basket?.length;
+                          if (totalGoods == null) {
+                            return const SizedBox.shrink();
+                          } else {
+                            return Transform.translate(
+                              offset: Offset(24.0.w, -9.0.h),
+                              child: Container(
+                                width: 20.w,
+                                height: 20.h,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Palette.iconBackgroundColor2,
+                                    border: Border.all(
+                                        color: Palette.secondaryColor,
+                                        width: 0.3)),
+                                child: Text(
+                                  totalGoods.toString(),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1
+                                      ?.copyWith(
+                                          color: Palette.secondaryColor,
+                                          fontSize:
+                                              totalGoods > 9 ? 8.sp : 12.sp),
+                                ),
+                              ),
+                            );
+                          }
+                        }, error: (_, __) {
+                          return const SizedBox.shrink();
+                        }, loading: () {
+                          return const SizedBox.shrink();
+                        })
+                      ])
                     ],
                   ),
                 ),
@@ -218,7 +257,7 @@ class _ProductDetailsState extends ConsumerState<ProductDetails> {
                           ///Bottom Header and favorites icon
                           Padding(
                             padding: EdgeInsets.only(
-                                left: 38.w, right: 36.5.w, top: 32.h),
+                                left: 38.w, right: 36.5.w, top: 30.h),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -436,8 +475,7 @@ class _ProductDetailsState extends ConsumerState<ProductDetails> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       const Text('Add to Cart'),
-                                      Text(
-                                          formatCurrency.format(data.price)),
+                                      Text(formatCurrency.format(data.price)),
                                     ],
                                   ),
                                 )),
