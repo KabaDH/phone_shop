@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:phone_shop/theme/palette.dart';
-import 'package:flutter_screenutil/src/screen_util.dart';
 import 'screens/screens.dart';
 
 void main() {
@@ -56,8 +55,9 @@ class MyApp extends StatelessWidget {
                 ),
           ),
           routes: {
-            '/': (BuildContext context) => const ProductDetails(),
+            '/': (BuildContext context) => const MainScreen(),
             '/product_details': (BuildContext context) => const ProductDetails(),
+            '/cart': (BuildContext context) => const MyCart(),
           },
         );
       },

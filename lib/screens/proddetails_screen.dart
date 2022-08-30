@@ -5,7 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:phone_shop/theme/palette.dart';
-import 'package:phone_shop/widgets/build_detailscard.dart';
 import 'package:pixel_perfect/pixel_perfect.dart';
 import 'package:phone_shop/widgets/widgets.dart';
 import 'package:intl/intl.dart';
@@ -111,8 +110,8 @@ class _ProductDetailsState extends ConsumerState<ProductDetails> {
     return PixelPerfect(
       assetPath: 'assets/images/d_details.png',
       scale: 1.05,
-      offset: const Offset(0.0, -20.0), // -145
-      initOpacity: 0.3,
+      offset: const Offset(0.0, -20.0), // -145 -20
+      initOpacity: 0.2,
       child: Scaffold(
           body: SizedBox(
         width: screenSize.width,
@@ -149,7 +148,8 @@ class _ProductDetailsState extends ConsumerState<ProductDetails> {
                               semanticsLabel: 'Shopping bag',
                               width: 14.w,
                             ),
-                            callback: () => Navigator.pop(context),
+                            callback: () =>
+                                Navigator.pushNamed(context, '/cart'),
                             color: Theme.of(context).primaryColor),
                         basket.when(data: (data) {
                           var totalGoods = data.basket?.length;

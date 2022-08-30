@@ -5,3 +5,4 @@ export 'build_homeheader.dart';
 export 'build_bestsellercard.dart';
 export 'button_with_icon.dart';
 export 'build_rating.dart';
+export 'build_details.dart';

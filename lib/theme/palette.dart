@@ -23,6 +23,6 @@ class Palette {
   static const detailsStarRatingColor = Color(0xFFFFB800);
   static const tabUnselectedColor = Color.fromARGB(128, 0, 0, 0);
   static const detailsDoneIconColor = Color(0xFFFAFAFA);
-
-
+  static const cartAddItemsElementColor = Color(0xFF282843);
+  static const cartDeleteIconElementColor = Color(0xFF36364D);
 }

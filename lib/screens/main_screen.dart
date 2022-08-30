@@ -56,8 +56,8 @@ class _MainScreenState extends ConsumerState<MainScreen> {
     return PixelPerfect(
       assetPath: 'assets/images/d_filters.png',
       scale: 1.05,
-      offset: const Offset(0.0, -140.0), //Offset(0.0, -20.0) -92 -140
-      initOpacity: 0.3,
+      offset: const Offset(0.0, -20.0), //Offset(0.0, -20.0) -92 -140
+      initOpacity: 0.2,
       child: Stack(children: [
         SizedBox(
           width: screenSize.width,
