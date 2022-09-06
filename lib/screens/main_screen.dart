@@ -1,17 +1,14 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:phone_shop/repos/basket_repo.dart';
-import 'package:phone_shop/repos/details_repo.dart';
-import 'package:phone_shop/repos/item_repo.dart';
 import 'package:phone_shop/theme/palette.dart';
 import 'package:phone_shop/widgets/widgets.dart';
 import 'package:pixel_perfect/pixel_perfect.dart';
 import 'package:phone_shop/models/models.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:phone_shop/controllers/controllers.dart';
 
 class MainScreen extends StatefulHookConsumerWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -50,7 +47,6 @@ class _MainScreenState extends ConsumerState<MainScreen> {
 
     final listItems = ref.watch(providerItem);
     final listBestSellers = ref.watch(providerBestSellerItems);
-    final basket = ref.watch(providerBasket);
     final hotSalesPageController = usePageController();
 
     return PixelPerfect(

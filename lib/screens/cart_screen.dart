@@ -9,7 +9,7 @@ import 'package:phone_shop/models/models.dart';
 import 'package:phone_shop/theme/palette.dart';
 import 'package:pixel_perfect/pixel_perfect.dart';
 import 'package:phone_shop/widgets/widgets.dart';
-import '../repos/basket_repo.dart';
+import 'package:phone_shop/controllers/controllers.dart';
 
 class MyCart extends ConsumerWidget {
   const MyCart({Key? key}) : super(key: key);

@@ -13,6 +13,19 @@ class Basket {
   // "id": "4",
   // "total": 3300
 
+  factory Basket.fromMap(Map<String, dynamic> map) {
+    final basketItems = List<Map<String, dynamic>>.from(map['basket']);
+    List<BasketItem> dtoList = [];
+    for (var e in basketItems) {
+      dtoList.add(BasketItem.fromMap(e));
+    }
+
+    return Basket(
+        delivery: map['delivery'] ?? '',
+        id: map['id'] ?? '',
+        total: map['total'] ?? 0,
+        basket: dtoList);
+  }
 }
 
 class BasketItem {

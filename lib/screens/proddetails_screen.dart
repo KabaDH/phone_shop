@@ -8,8 +8,7 @@ import 'package:phone_shop/theme/palette.dart';
 import 'package:pixel_perfect/pixel_perfect.dart';
 import 'package:phone_shop/widgets/widgets.dart';
 import 'package:intl/intl.dart';
-import '../repos/basket_repo.dart';
-import '../repos/details_repo.dart';
+import 'package:phone_shop/controllers/controllers.dart';
 
 class ProductDetails extends StatefulHookConsumerWidget {
   const ProductDetails({Key? key}) : super(key: key);

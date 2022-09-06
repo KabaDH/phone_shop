@@ -32,3 +32,19 @@ class BestSeller {
     );
   }
 }
+
+class BestSellerList {
+  final List<BestSeller> bestSellerList;
+
+  const BestSellerList({required this.bestSellerList});
+
+  factory BestSellerList.fromMap(Map<String, dynamic> map) {
+    final inputList = List<Map<String, dynamic>>.from(map['best_seller']);
+    List<BestSeller> dtoList = [];
+    for (var e in inputList) {
+      dtoList.add(BestSeller.fromMap(e));
+    }
+
+    return BestSellerList(bestSellerList: dtoList);
+  }
+}

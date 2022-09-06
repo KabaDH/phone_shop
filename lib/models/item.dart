@@ -31,3 +31,19 @@ class Item {
     );
   }
 }
+
+class ItemList {
+  final List<Item> itemList;
+
+  const ItemList({required this.itemList});
+
+  factory ItemList.fromMap(Map<String, dynamic> map) {
+    final inputList = List<Map<String, dynamic>>.from(map['home_store']);
+    List<Item> dtoList = [];
+    for (var e in inputList) {
+      dtoList.add(Item.fromMap(e));
+    }
+
+    return ItemList(itemList: dtoList);
+  }
+}
