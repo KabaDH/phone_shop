@@ -26,6 +26,9 @@ class ControllerFakeAPI extends ControllerAPI {
             data['home_store'][0]['picture'] =
                 'https://www.greenscene.co.id/wp-content/uploads/2021/11/pikachu.jpg';
             return data;
+          case Variables.cartApiUrl:
+            data['basket'][0]['price'] = 11111;
+            return data;
           default:
             return data;
         }
